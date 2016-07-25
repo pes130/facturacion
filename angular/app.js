@@ -3,12 +3,15 @@ var app = angular.module('facturacionApp',['ngRoute',
                 'facturacionApp.mensajes',
                 'facturacionApp.notificaciones',
                 'facturacionApp.clientesCtrl',
-                'facturacionApp.dashboardCtrl']);
+                'facturacionApp.dashboardCtrl',
+                'facturacionApp.clientes']);
 
 app.controller('mainCtrl',['$scope','Configuracion','Mensajes', 'Notificaciones', function($scope, Configuracion, Mensajes, Notificaciones){
   $scope.config = {};
   $scope.mensajes = Mensajes.mensajes;
   $scope.notificaciones = Notificaciones.notificaciones;
+  $scope.titulo = "";
+  $scope.subtitulo = "";
   console.log($scope.notificaciones);
 
   $scope.usuario = {
@@ -20,10 +23,12 @@ app.controller('mainCtrl',['$scope','Configuracion','Mensajes', 'Notificaciones'
 
 
   //FUnciones globales
-  $scope.activar = function(menu, submenu){
+  $scope.activar = function(menu, submenu, titulo, subtitulo){
     $scope.mDashboard = "";
     $scope.mClientes = "";
     $scope[menu] = "active";
+    $scope.titulo = titulo;
+    $scope.subtitulo = subtitulo;
   };
 
 
