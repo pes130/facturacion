@@ -40,6 +40,18 @@
           </tbody>
         </table>
       </div>
+      <div class="box-footer clearfix">
+        <ul class="pagination pagination-sm no-margin pull-right">
+          <li><a ng-click="moverA(1)">«</a></li>
+
+          <li ng-repeat="pag in clientes.paginas" ng-class="{'active': clientes.pag_actual == pag}">
+              <a ng-click="moverA(pag)">{{pag}}</a>
+          </li>
+
+
+          <li><a ng-click="moverA(cliente.total_paginas)">»</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
