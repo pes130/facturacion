@@ -11,7 +11,7 @@
         <h3 class="box-title">Clientes</h3>
           <div class="box-tools">
               <div class="input-group">
-                <a href="" class="btn btn-primary"><span class="fa fa-plus"></span>Agregar cliente</a>
+                <a ng-click="mostrarModal({})" class="btn btn-primary"><span class="fa fa-plus"></span>Agregar cliente</a>
               </div>
             </div>
       </div>
@@ -35,7 +35,7 @@
                 <td>{{cliente.correo}}</td>
                 <td>{{cliente.telefono1}}</td>
                 <td>{{cliente.telefono2}}</td>
-                <td><a href="" class="btn btn-warning"><span class="fa fa-edit"></span></a></td>
+                <td><a ng-click="mostrarModal(cliente)" class="btn btn-warning"><span class="fa fa-edit"></span></a></td>
               </tr>
           </tbody>
         </table>
@@ -55,3 +55,4 @@
     </div>
   </div>
 </div>
+<div ng-include="'template/modal_cliente.html'"></div>

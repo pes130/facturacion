@@ -1,4 +1,5 @@
 var app = angular.module('facturacionApp',['ngRoute',
+                'jcs-autoValidate',
                 'facturacionApp.configuracion',
                 'facturacionApp.mensajes',
                 'facturacionApp.notificaciones',
@@ -50,7 +51,14 @@ app.config(['$routeProvider', function($routeProvider){
       })
 }]);
 
-
+// Autovalidate config
+angular.module('jcs-autoValidate').run([
+  'defaultErrorMessageResolver',
+  function(defaultErrorMessageResolver){
+    defaultErrorMessageResolver.setI18nFileRootPath('angular/lib');
+    defaultErrorMessageResolver.setCulture('es-co');
+  }
+]);
 
 //FILTROS
 app.filter('quitarLetra', function(){

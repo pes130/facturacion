@@ -11,7 +11,15 @@ app.factory('Clientes', ['$http','$q', function($http,$q) {
     'pag_anterior'  :1,
     'total_paginas' :1,
     'paginas'	    :[],
-
+    guardar: function(cliente){
+      var d= $q.defer();
+      $http.post('php/clientes/post.clienteguardar.php', cliente)
+        .success(function(respuesta){
+          self.cargarPagina(self.pag_actual);
+          d.resolve();
+        });
+      return d.promise;
+    },
     cargarPagina: function(pag){
       var d= $q.defer();
       $http.get('php/clientes/get.clientes.php?pag='+pag).success(function(data){
